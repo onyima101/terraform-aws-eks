@@ -23,14 +23,6 @@ data "aws_ami" "eks_worker" {
   owners = ["602401143452"] # Amazon Account ID
 }
 
-output "ami_id" {
-  value = "${data.aws_ami.eks-worker.id}"
-}
-
-output "name" {
-  value = "${data.aws_ami.eks-worker.name}"
-}
-
 data "aws_ami" "eks_worker_windows" {
   filter {
     name   = "name"
