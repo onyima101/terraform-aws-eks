@@ -20,8 +20,15 @@ data "aws_ami" "eks_worker" {
   }
 
   most_recent = true
+  owners = ["602401143452"] # Amazon Account ID
+}
 
-  owners = [var.worker_ami_owner_id]
+output "ami_id" {
+  value = "${data.aws_ami.eks-worker.id}"
+}
+
+output "name" {
+  value = "${data.aws_ami.eks-worker.name}"
 }
 
 data "aws_ami" "eks_worker_windows" {
